@@ -24,7 +24,7 @@ function App() {
       let btn = categories_btn[i];
       btn.addEventListener("click", function () {
         for (let j = 0; j < categories_btn.length; j++) {
-          if (i != j) {
+          if (i !== j) {
             categories_list[j].classList.remove("list-active");
           }
         }

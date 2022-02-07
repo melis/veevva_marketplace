@@ -1,13 +1,20 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import Button from "../Button/Button";
 
 function Header(props) {
+  const data = useSelector((a) => a.auth);
+  console.log(data);
   return (
     <div className="wrapper">
       <header className="header">
         <div className="container">
           <div className="header__inner">
             <div className="header__inner--block-1">
-              <div className="header__logo">LOGOO</div>
+              <div className="header__logo">
+                <a href="#">LOGOO </a>
+              </div>
+
               <div className="header__categories">
                 <div className="header__categories--menu">
                   <div className="hamburger hamburger--squeeze">
@@ -15,7 +22,12 @@ function Header(props) {
                       <div className="hamburger-inner"></div>
                     </div>
                   </div>
-                  <span className="header__categories--name">Categories</span>
+                  <span
+                    className="header__categories--name"
+                    id="for_categories"
+                  >
+                    Categories
+                  </span>
                 </div>
               </div>
               <div className="header__searchbar">
@@ -32,14 +44,11 @@ function Header(props) {
                 <span className="header__basket--name">Basket</span>
               </div>
               <div className="header__marketplace">
-                <a className="btn " href="#">
-                  Go to the marketplace
-                </a>
+                <Button red>Go to the marketplace</Button>
               </div>
+
               <div className="header__login">
-                <a className="btn header__login--btn" href="#">
-                  Login
-                </a>
+                <Button>Login</Button>
               </div>
               <div className="header__profile">
                 <img src="./images/header/man.svg" alt="Profile" />
