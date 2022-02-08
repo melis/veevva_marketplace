@@ -16,9 +16,11 @@ for(let i = 0; i < categories_btn.length; i++) {
     for(let j = 0; j < categories_btn.length; j++) {
       if(i != j) {
         categories_list[j].classList.remove('list-active')
+        categories_btn[j].style.color = '#181818'
       }
     }
     categories_list[i].classList.toggle('list-active')
+    categories_btn[i].style.color = '#040034'
   })
 }
 
@@ -26,6 +28,21 @@ document.body.addEventListener('click', function(e) {
   for(let i = 0; i < categories_btn.length; i++) {
     if(!categories_btn[i].contains(e.target) && !categories_list[i].contains(e.target)) {
       categories_list[i].classList.remove('list-active')
+      categories_btn[i].style.color = '#181818'
     }
   }
 })
+
+// Filter
+
+const filter_header = document.querySelectorAll('#filter_header')
+const filter_submenu = document.querySelectorAll('#filter_submenu')
+const filter_arrow_bottom = document.querySelectorAll('.filter__title--arrow img')
+
+for(let i = 0, len = filter_header.length; i < len; i++) {
+  let head = filter_header[i]
+  head.addEventListener('click', function() {
+    filter_submenu[i].classList.toggle('active-submenu')
+    filter_submenu[i].classList.contains('active-submenu') ? filter_arrow_bottom[i].style.transform = 'rotate(180deg)' : filter_arrow_bottom[i].style.transform = 'rotate(0)'
+  })
+}

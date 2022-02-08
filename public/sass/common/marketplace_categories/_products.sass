@@ -1,24 +1,11 @@
-.bestsellers
-  padding-top: 32px
-  &__title
+.product
+  &__block
     display: flex
     justify-content: space-between
-    &--text
-      font-family: $mulish-extra
-      font-size: 32px
-      color: $dark-blue
-    &--link
-      transform: translateY(30px)
-      a
-        font-family: $poppins-regular
-        font-size: 18px
-        text-decoration: none
-        color: rgba(24, 24, 24, 0.7)
-  &__cards
-    display: flex
     flex-flow: row wrap
-    justify-content: space-between
-    padding-top: 35px
+    padding: 35px 60px 15px 30px
+    max-width: 1150px
+    margin: 0 auto
   &__card
     cursor: pointer
     display: inline-block
@@ -34,6 +21,7 @@
       font-size: 20px
       padding-left: 14px
       padding-top: 6px
+      color: $dark-blue
   &__desc
     &--text
       display: inline-block
@@ -44,3 +32,7 @@
       strong
         font-family: $poppins-bold
         color: $dark-blue
+
+
+.footer__marketplace--categories
+  margin-top: 45px
