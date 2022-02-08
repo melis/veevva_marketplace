@@ -7,14 +7,155 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Veevva</title>
+    <title>Marketplace</title>
     <!--  FONTS -->
     <link rel="stylesheet" href="./css/fonts.css" />
     <!--  STYLE -->
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/marketplace.css" />
   </head>
   <body>
-    <div id="root"></div>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__inner">
+            <div class="header__inner--block-1">
+              <div class="header__logo">LOGOO</div>
+              <div class="header__categories">
+                <div class="header__categories--menu" id="header__categories">
+                  <div class="hamburger hamburger--squeeze">
+                    <div class="hamburger-box">
+                      <div class="hamburger-inner"></div>
+                    </div>
+                  </div>
+                  <span class="header__categories--name">Categories</span>
+                </div>
+              </div>
+              <div class="header__searchbar">
+                <input type="text" placeholder="Search" />
+              </div>
+            </div>
+            <div class="header__inner--block-2">
+              <div class="header__notif">
+                <img src="./images/header/bell.svg" alt="Bell" />
+                <span class="header__notif--name">Notification</span>
+              </div>
+              <div class="header__basket">
+                <img src="./images/header/basket.svg" alt="Basket" />
+                <span class="header__basket--name">Basket</span>
+              </div>
+              <div class="header__marketplace">
+                <a class="btn header__marketplace--btn" href="#"
+                  >Go to the marketplace</a
+                >
+              </div>
+              <div class="header__login">
+                <a class="btn header__login--btn" href="#">Login</a>
+              </div>
+              <div class="header__profile">
+                <img src="./images/header/man.svg" alt="Profile" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="root"><div class="container">loading ...</div></div>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__inner">
+            <!--            Footer brand   -->
+            <div class="footer__brand">
+              <div class="footer__brand--logo">
+                <img src="./images/footer/footer_logo.png" alt="Logo" />
+              </div>
+              <div class="footer__brand--copyright">
+                <span class="footer__copyright--text"
+                  >2021 © All rights reserved.</span
+                >
+              </div>
+            </div>
+            <!--            Footer brand end   -->
+
+            <!--            Footer partners   -->
+            <div class="footer__partners">
+              <div class="footer__partners--title">
+                <h2>Partners</h2>
+              </div>
+              <div class="footer__partners--buttons">
+                <div class="footer__partners--btn">
+                  <a href="#" class="btn">Registration</a>
+                </div>
+                <div class="footer__partners--btn">
+                  <a href="#" class="btn">Login</a>
+                </div>
+              </div>
+            </div>
+            <!--            Footer partners end   -->
+
+            <!--            Footer marketplace   -->
+            <div class="footer__marketplace">
+              <div class="footer__marketplace--title">
+                <h2>Marketplace</h2>
+              </div>
+              <ul class="footer__marketplace--list">
+                <li class="footer__marketplace--item">
+                  Beauty & Personal care
+                </li>
+                <li class="footer__marketplace--item">Baby</li>
+                <li class="footer__marketplace--item">Electronics</li>
+                <li class="footer__marketplace--item">Fashion</li>
+                <li class="footer__marketplace--item">Health & Household</li>
+                <li class="footer__marketplace--item">Home & Kitchen</li>
+                <li class="footer__marketplace--item">Luggage</li>
+                <li class="footer__marketplace--item">Sports</li>
+              </ul>
+            </div>
+            <!--            Footer marketplace end   -->
+
+            <!--            Footer company   -->
+            <div class="footer__company">
+              <div class="footer__company--title">
+                <h2>Company</h2>
+              </div>
+              <ul class="footer__company--list">
+                <li class="footer__company--item">FAQ</li>
+                <li class="footer__company--item">Shipping</li>
+                <li class="footer__company--item">Terms & Conditions</li>
+                <li class="footer__company--item">Privacy policy</li>
+                <li class="footer__company--item">Cookie policy</li>
+              </ul>
+              <div class="footer__company--connection">
+                <div class="footer__company--email">
+                  <div class="footer__email--icon">
+                    <img src="./images/footer/Message.svg" alt="Mail" />
+                  </div>
+                  <div class="footer__email--link">
+                    <a href="#">support@veevva.com</a>
+                  </div>
+                </div>
+                <div class="footer__company--social">
+                  <div class="footer__social--link instagram">
+                    <img src="./images/footer/instagram.svg" alt="Instagram" />
+                  </div>
+                  <div class="footer__social--link twitter">
+                    <img src="./images/footer/twitter.svg" alt="Twitter" />
+                  </div>
+                  <div class="footer__social--link youtube">
+                    <img src="./images/footer/youtube.svg" alt="Youtube" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--            Footer company end   -->
+          </div>
+        </div>
+      </footer>
+      <!--      Footer end   -->
+    </div>
+    <!--    Wrapper end-->
+
     <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>
