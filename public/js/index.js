@@ -1,9 +1,11 @@
 //Humburger
 const humburger = document.querySelector('.hamburger')
-const header_categories = document.querySelector('.header__categories')
+const header_categories = document.querySelector('.header__categories--menu')
+const header_category = document.querySelector('.header__categories--category')
 
 header_categories.addEventListener('click', function() {
   humburger.classList.toggle('is-active')
+  header_category.classList.toggle('header-category-active')
 })
 
 // categories
@@ -16,11 +18,9 @@ for(let i = 0; i < categories_btn.length; i++) {
     for(let j = 0; j < categories_btn.length; j++) {
       if(i != j) {
         categories_list[j].classList.remove('list-active')
-        categories_btn[j].style.color = '#181818'
       }
     }
     categories_list[i].classList.toggle('list-active')
-    categories_btn[i].style.color = '#040034'
   })
 }
 
@@ -28,7 +28,6 @@ document.body.addEventListener('click', function(e) {
   for(let i = 0; i < categories_btn.length; i++) {
     if(!categories_btn[i].contains(e.target) && !categories_list[i].contains(e.target)) {
       categories_list[i].classList.remove('list-active')
-      categories_btn[i].style.color = '#181818'
     }
   }
 })

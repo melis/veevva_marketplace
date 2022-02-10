@@ -19,7 +19,7 @@ const Categoryes = () => {
 
   return (
     <>
-      {ReactDOM.createPortal(
+      {/* {ReactDOM.createPortal(
         <CatalogButton
           setHCatalog={setHCatalog}
           hCatatalog={hCatatalog}
@@ -27,7 +27,7 @@ const Categoryes = () => {
           category={category}
         />,
         document.getElementById("header__categories")
-      )}
+      )} */}
       <section className="categories">
         <div className="categories__title">
           <h2 className="categories__title--text">Explore Categories</h2>
