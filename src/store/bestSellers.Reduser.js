@@ -5,7 +5,6 @@ const bestSellers_state = {
 };
 
 const bestSellers = (state = bestSellers_state, action) => {
-  console.log("best_reduse", action);
   switch (action.type) {
     case "SET_BEST_SELLERS":
       return {

@@ -5,7 +5,6 @@ const newProducts_state = {
 };
 
 const newProducts = (state = newProducts_state, action) => {
-  console.log("new_reduse", action);
   switch (action.type) {
     case "SET_NEW_PROD":
       return {

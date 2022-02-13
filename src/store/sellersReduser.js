@@ -5,7 +5,6 @@ const sellers_state = {
 };
 
 const sellers = (state = sellers_state, action) => {
-  console.log("seller_reduse", action);
   switch (action.type) {
     case "SET_SELLERS":
       return {

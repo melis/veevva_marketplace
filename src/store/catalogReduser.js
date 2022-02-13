@@ -5,7 +5,6 @@ const category_state = {
 };
 
 const category = (state = category_state, action) => {
-  console.log("catalog_reduse", action);
   switch (action.type) {
     case "SET_CATEGORY":
       return { ...state, error: null, loading: false, category: action.paylod };

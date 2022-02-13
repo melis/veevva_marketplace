@@ -20,9 +20,11 @@ function Bestsellers() {
           <a href="#">View all</a>
         </div>
       </div>
-      {bestSellers.map((b) => (
-        <Card product={b} key={b.id} />
-      ))}
+      <div className="bestsellers__cards">
+        {bestSellers.map((b) => (
+          <Card product={b} key={b.id} />
+        ))}
+      </div>
     </section>
   );
 }

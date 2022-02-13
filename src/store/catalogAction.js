@@ -1,7 +1,8 @@
 import axios from "axios";
+import api from "../api";
 
-export const setCategory = (data) => {
-  return { type: "SET_CATEGORY", paylod: data.category };
+export const setCategory = (category) => {
+  return { type: "SET_CATEGORY", paylod: category };
 };
 
 export const setLoad = (str) => ({
@@ -13,9 +14,9 @@ export const loadCategory = () => {
   return async (dispatch) => {
     dispatch(setLoad());
     try {
-      const { data } = await axios.get("http://pro01/api/api/list/category");
+      const { category } = await api.getCategories();
 
-      dispatch(setCategory(data));
+      dispatch(setCategory(category));
     } catch (e) {
       dispatch({ type: "SET_ERROR_CATEGORY", paylod: "Some thing is wrong!" });
     }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import api from "../../api";
 function Category({ category, menu }) {
   const [active, setActive] = useState(false);
 
@@ -11,7 +11,7 @@ function Category({ category, menu }) {
     >
       <div className="categories__category--image" style={{ marginTop: "5px" }}>
         <img
-          src={`./images/marketplace/categories/${category.category_path}`}
+          src={`${api.baseUrl}/categories/${category.category_path}`}
           alt={category.category_name}
         />
       </div>
@@ -22,16 +22,12 @@ function Category({ category, menu }) {
               className="categories__category--title"
               // style={{ marginBottom: "25px", marginLeft: "20px" }}
               onClick={(e) => {
-                e.stopPropagation();
                 e.preventDefault();
                 setActive((a) => !a);
               }}
             >
               {category.category_name}
-              <img
-                src="./images/marketplace/categories/arrow.svg"
-                alt="arrow"
-              />
+              <img src={`${api.baseUrl}/categories/arrow.svg`} alt="arrow" />
             </span>
             <div
               className={`categories__category--list ${
@@ -39,7 +35,14 @@ function Category({ category, menu }) {
               }`}
             >
               {menu.map((m) => (
-                <div className="categories__category--item" key={m.id}>
+                <div
+                  className="categories__category--item"
+                  key={m.id}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = `./category?c=${m.id}`;
+                  }}
+                >
                   <div>{m.category_name}</div>
                 </div>
               ))}

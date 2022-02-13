@@ -10,15 +10,15 @@ function NewProducts() {
     dispatch(loadNewProducts());
   }, [dispatch]);
   return (
-    <section class="newproducts">
-      <div class="bestsellers__title">
-        <h2 class="bestsellers__title--text">New products</h2>
-        <div class="bestsellers__title--link newproducts__title--link">
+    <section className="newproducts">
+      <div className="bestsellers__title">
+        <h2 className="bestsellers__title--text">New products</h2>
+        <div className="bestsellers__title--link newproducts__title--link">
           <a href="#">View all</a>
         </div>
       </div>
 
-      <div class="newproducts__cards">
+      <div className="newproducts__cards">
         {newProducts.map((n) => (
           <Card key={n.id} product={n} />
         ))}

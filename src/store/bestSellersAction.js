@@ -1,7 +1,7 @@
-import axios from "axios";
+import api from "../api";
 
-export const setBestSellers = (data) => {
-  return { type: "SET_BEST_SELLERS", paylod: data.bestsellers };
+export const setBestSellers = (bestsellers) => {
+  return { type: "SET_BEST_SELLERS", paylod: bestsellers };
 };
 
 export const setLoad = (str) => ({
@@ -13,9 +13,9 @@ export const loadBestSellers = () => {
   return async (dispatch) => {
     dispatch(setLoad());
     try {
-      const { data } = await axios.get("http://pro01/api/api/list/bestsellers");
+      const { bestsellers } = await api.getBestSellers();
 
-      dispatch(setBestSellers(data));
+      dispatch(setBestSellers(bestsellers));
     } catch (e) {
       dispatch({
         type: "SET_ERROR_BEST_SELLERS",

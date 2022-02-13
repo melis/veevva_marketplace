@@ -1,7 +1,7 @@
-import axios from "axios";
+import api from "../api";
 
-export const setSellers = (data) => {
-  return { type: "SET_SELLERS", paylod: data.topsellers };
+export const setSellers = (topsellers) => {
+  return { type: "SET_SELLERS", paylod: topsellers };
 };
 
 export const setLoad = (str) => ({
@@ -13,9 +13,9 @@ export const loadSellers = () => {
   return async (dispatch) => {
     dispatch(setLoad());
     try {
-      const { data } = await axios.get("http://pro01/api/api/list/topsellers");
+      const { topsellers } = await api.getToptSellers();
 
-      dispatch(setSellers(data));
+      dispatch(setSellers(topsellers));
     } catch (e) {
       dispatch({ type: "SET_ERROR_SELLERS", paylod: "Some thing is wrong!" });
     }
