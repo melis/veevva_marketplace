@@ -1,22 +1,15 @@
 import React from "react";
 import "./App.css";
-import Categories from "./components/Categories/Categories";
 import { BrowserRouter } from "react-router-dom";
-import Bestsellers from "./components/Bestsellers/Bestsellers";
-import Topsellers from "./components/Topsellers/Topsellers";
-import NewProducts from "./components/NewProducts/NewProducts";
-// import Header from "./components/Header/Header";
+import Filter from "./components/Filter/Filter";
+import Products from "./components/Products/Products";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="main">
-        <div className="container">
-          <Categories />
-          <Bestsellers />
-          <Topsellers />
-          <NewProducts />
-        </div>
+      <div className="main__inners">
+        <Filter />
+        <Products />
       </div>
     </BrowserRouter>
   );
