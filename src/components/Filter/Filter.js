@@ -3,24 +3,24 @@ import Brand from "./Brand";
 import Category from "./Category";
 import Price from "./Price";
 import { useNavigate } from "react-router-dom";
+
 function Filter() {
   const [c, setC] = useState(null);
   const [b, setB] = useState(null);
   const [price, setPrice] = useState(null);
-  // const [url, setUrl] = useState("");
+  console.log(price);
   const navigate = useNavigate();
   useEffect(() => {
-    // let url = `/?${c ? ("c=" + c.id + b || price ? "&" : "") : ""}${
-    //   b ? ("b=" + b.id + price ? "&" : "") : ""
-    // }`;
     let cc = c ? "c=" + c.id : "";
     let bb = b ? "b=" + b.id : "";
-    let pp = price ? "p" : "";
-    let u = `${c || b || price ? "/?" : ""}${cc}${bb && cc ? "&" : ""}${bb}${
-      pp ? "&" : ""
-    }`;
+    let min = price?.min ? "min=" + price.min : "";
+    let max = price?.max ? "max=" + price.max : "";
+
+    let u = `${c || b || price ? "/?" : ""}${cc}${
+      cc && (bb || min || max) ? "&" : ""
+    }${bb}${bb && (min || max) ? "&" : ""}${min}${min && max ? "&" : ""}${max}`;
     navigate(u);
-  }, [c, b, price]);
+  }, [c, b, price, navigate]);
 
   return (
     <aside className="filter">

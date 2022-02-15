@@ -59,7 +59,8 @@ function Price({ price, setPrice }) {
               type="number"
               placeholder="Min"
               min={0}
-              onChange={(e) => setMin(e.target.value)}
+              value={min}
+              onChange={(e) => setMin(Number(e.target.value))}
             />
           </div>
           <div className="filter__submenu--to">to</div>
@@ -67,14 +68,22 @@ function Price({ price, setPrice }) {
             <input
               type="number"
               placeholder="Max"
-              min={min ? min : 0}
+              min={0}
               value={max}
-              onChange={(e) => setMax(e.target.value)}
+              onChange={(e) => setMax(Number(e.target.value))}
             />
           </div>
         </div>
         <div className="filter__submenu--button">
-          <button onClick={() => setPrice({ min, max, sort })}>Apply</button>
+          <button
+            onClick={() => {
+              if (min || max || sort) {
+                setPrice({ min, max, sort });
+              } else setPrice(null);
+            }}
+          >
+            Apply
+          </button>
         </div>
       </div>
     </div>
