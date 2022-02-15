@@ -8,7 +8,23 @@ class Api {
   async getNewProducts() {
     try {
       const { data } = await axios.get(`${this.url}/list/productsnew`);
+      if (!data.success) {
+        throw new Error("Some error!");
+      }
+      return data;
+    } catch (e) {
+      return {
+        error: e,
+      };
+    }
+  }
 
+  async getBrands() {
+    try {
+      const { data } = await axios.get(`${this.url}/list/brand`);
+      if (!data.success) {
+        throw new Error("Some error!");
+      }
       return data;
     } catch (e) {
       return {
@@ -20,7 +36,9 @@ class Api {
   async getBestSellers() {
     try {
       const { data } = await axios.get(`${this.url}/list/bestsellers`);
-
+      if (!data.success) {
+        throw new Error("Some error!");
+      }
       return data;
     } catch (e) {
       return {
@@ -32,7 +50,9 @@ class Api {
   async getCategories() {
     try {
       const { data } = await axios.get(`${this.url}/list/category`);
-
+      if (!data.success) {
+        throw new Error("Some error!");
+      }
       return data;
     } catch (e) {
       return {
@@ -44,7 +64,9 @@ class Api {
   async getToptSellers() {
     try {
       const { data } = await axios.get(`${this.url}/list/topsellers`);
-
+      if (!data.success) {
+        throw new Error("Some error!");
+      }
       return data;
     } catch (e) {
       return {
