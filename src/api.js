@@ -53,7 +53,7 @@ class Api {
       if (!data.success) {
         throw new Error("Some error!");
       }
-      return data;
+      return data.category;
     } catch (e) {
       return {
         error: e,
