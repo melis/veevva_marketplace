@@ -19,7 +19,7 @@ export const loadBestSellers = () => {
     } catch (e) {
       dispatch({
         type: "SET_ERROR_BEST_SELLERS",
-        paylod: "Some thing is wrong!",
+        paylod: e.massega ? e.massega : "Some thing is wrong!",
       });
     }
   };
