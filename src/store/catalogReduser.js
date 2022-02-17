@@ -11,7 +11,7 @@ const category = (state = category_state, action) => {
     case "SET_LOAD_CATEGORY":
       return { ...state, error: null, loading: action.paylod };
     case "SET_ERROR_CATEGORY":
-      return { ...state, loading: false, error: action.paylod };
+      return { ...state, loading: false, error: action.paylod, category: [] };
 
     default:
       return state;

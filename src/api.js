@@ -5,6 +5,26 @@ class Api {
 
   baseUrl = "http://pro01";
 
+  async getAllProducts(url = "?") {
+    console.log(url);
+    // http://pro01/api/api/list/productsall?category_id=10&brand_id=12165&pageno=1&order=brand&ordertype=DESC&cmd=search
+    // http://pro01/api/api/list/productsall?cmd=search&z_price=BETWEEN&x_price=10&y_price=30
+    try {
+      const { data } = await axios.get(
+        `${this.url}/list/productsall?cmd=search&${url.replace("?", "")}`
+      );
+      if (!data.success) {
+        throw new Error("Some error!");
+      }
+
+      return data;
+    } catch (e) {
+      return {
+        error: [],
+      };
+    }
+  }
+
   async getNewProducts() {
     try {
       const { data } = await axios.get(`${this.url}/list/productsnew`);
@@ -27,9 +47,7 @@ class Api {
       }
       return data;
     } catch (e) {
-      return {
-        error: e,
-      };
+      return [];
     }
   }
 
@@ -55,9 +73,7 @@ class Api {
       }
       return data.category;
     } catch (e) {
-      return {
-        error: e,
-      };
+      return [];
     }
   }
 

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-function Price({ price, setPrice }) {
+function Price({ setPrice, price }) {
   const [active, setActive] = useState(false);
-  const [min, setMin] = useState(0);
-  const [max, setMax] = useState(0);
-  const [sort, setSort] = useState("");
+  const [min, setMin] = useState(price?.min ? price.min : 0);
+  const [max, setMax] = useState(price?.max ? price.max : 0);
+  const [sort, setSort] = useState(price?.sort ? price.sort : "");
+
   return (
     <div className="filter__body--price">
       <div

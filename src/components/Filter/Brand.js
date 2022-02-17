@@ -9,7 +9,10 @@ function Brand({ select, setSelect }) {
   const [sText, setSText] = useState("");
 
   useEffect(() => {
-    api.getBrands().then((b) => setBrands(b.brand));
+    api
+      .getBrands()
+      .then((b) => setBrands(b.brand))
+      .catch((e) => setBrands([]));
   }, []);
 
   useEffect(() => {
@@ -17,6 +20,20 @@ function Brand({ select, setSelect }) {
       if (brands.length > 5) {
         let arr = [...brands];
         arr.length = 5;
+
+        let l = false;
+        arr.forEach((el) => {
+          if (el.id === select) {
+            l = true;
+          }
+        });
+        if (!l) {
+          brands.forEach((el) => {
+            if (el.id === select) {
+              arr.push(el);
+            }
+          });
+        }
 
         setRbrands([...arr]);
       } else {
@@ -27,7 +44,7 @@ function Brand({ select, setSelect }) {
         brands.filter(
           (c) =>
             c.brand_name.toLowerCase().search(sText.toLowerCase()) !== -1 ||
-            select?.id === c.id
+            select === c.id
         )
       );
     }
@@ -69,14 +86,14 @@ function Brand({ select, setSelect }) {
               key={b.id}
               onClick={() =>
                 setSelect((a) => {
-                  if (a?.id === b.id) {
+                  if (a === b.id) {
                     return null;
                   }
-                  return b;
+                  return b.id;
                 })
               }
               className={`select_item ${
-                select?.id === b.id ? "select_item_active" : ""
+                select === b.id ? "select_item_active" : ""
               }`}
             >
               {b.brand_name}

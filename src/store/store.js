@@ -4,13 +4,14 @@ import category from "./catalogReduser";
 import bestSellers from "./bestSellers.Reduser";
 import sellers from "./sellersReduser";
 import newProducts from "./newProductsReduser";
+import products from "./productsReduser";
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
 const store = createStore(
-  combineReducers({ category, bestSellers, sellers, newProducts }),
+  combineReducers({ category, bestSellers, sellers, newProducts, products }),
   composeEnhancers(applyMiddleware(reduxThunk))
 );
 

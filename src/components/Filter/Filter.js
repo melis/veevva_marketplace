@@ -1,27 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Brand from "./Brand";
 import Category from "./Category";
 import Price from "./Price";
-import { useNavigate } from "react-router-dom";
 
-function Filter() {
-  const [c, setC] = useState(null);
-  const [b, setB] = useState(null);
-  const [price, setPrice] = useState(null);
-  console.log(price);
-  const navigate = useNavigate();
-  useEffect(() => {
-    let cc = c ? "c=" + c.id : "";
-    let bb = b ? "b=" + b.id : "";
-    let min = price?.min ? "min=" + price.min : "";
-    let max = price?.max ? "max=" + price.max : "";
-
-    let u = `${c || b || price ? "/?" : ""}${cc}${
-      cc && (bb || min || max) ? "&" : ""
-    }${bb}${bb && (min || max) ? "&" : ""}${min}${min && max ? "&" : ""}${max}`;
-    navigate(u);
-  }, [c, b, price, navigate]);
-
+function Filter({ setC, c, setB, b, setPrice, price }) {
   return (
     <aside className="filter">
       <div className="filter__header">
